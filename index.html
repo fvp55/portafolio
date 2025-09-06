@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio - Facu</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-bs-theme="light">
+
+  <!-- Navbar (sin clases de color fijas. se aplican desde JS) -->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Mi Portafolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+
+          <!-- switch -->
+          
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+   <section class="hero day" id="hero">
+    <div class="sky">
+      <div class="sun" id="sun"></div>
+      <div class="moon" id="moon"></div>
+    </div>
+    <div class="container text-center">
+          <h1 class="display-3 fw-bold hero-title">Hola, soy Facu 👋</h1>
+      <p class="lead">Desarrollador Frontend Junior</p>
+      <button id="themeToggle" class="btn btn-dark mt-4">🌙 Cambiar modo</button>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi" class="py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5 text-center mb-4 mb-md-0">
+          <img src="img/IMG_20250823_165243907.jpg" alt="Tu foto" class="rounded-circle img-fluid shadow-lg profile-img">
+        </div>
+        <div class="col-md-7">
+          <h2 class="fw-bold">Sobre mí</h2>
+          <p>Soy estudiante de Desarrollo de Software en el Instituto Superior Villa del Rosario. Me apasiona el frontend, la tecnología y la ciberseguridad. Busco mi primer trabajo como programador.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos -->
+  <section id="proyectos" class="py-5 bg-section">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Proyectos Destacados</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-lg border-0 h-100 project-card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Proyecto 1">
+            <div class="card-body">
+              <h5 class="card-title">Catálogo de Libros</h5>
+              <p class="card-text">Aplicación web ASPX para gestionar un catálogo de libros con carrito de compras.</p>
+              <a href="#" class="btn btn-primary btn-sm">Ver Demo</a>
+              <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <!-- más tarjetas... -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold">Contacto</h2>
+      <p>Puedes escribirme para colaboraciones o propuestas laborales:</p>
+      <a href="mailto:videla2004@gmail.com" class="btn btn-primary shadow">Enviar correo</a>
+      <div class="mt-3">
+        <a href="https://github.com/fvp55" target="_blank" class="me-3">GitHub</a>
+        <a href="https://linkedin.com/in/facundo-videla-prats-87056b201/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="siteFooter" class="text-center py-3">
+    <p>© 2025 Facu | Desarrollador Frontend Jr.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JS personalizado -->
+  <script src="script.js"></script>
+</body>
+</html>

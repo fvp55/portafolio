@@ -1,0 +1,208 @@
+
+/* Base */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .25s ease, color .25s ease;
+  scroll-behavior: smooth;
+}
+
+/* Navbar style that adapts */
+#mainNavbar {
+  background: var(--navbar-bg);
+  transition: background .25s ease, color .25s ease;
+}
+
+/* Force nav-link colors to follow variables for consistent contrast */
+.nav-link, .navbar-brand {
+  color: var(--text) !important;
+}
+
+/* Hero */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hero-gradient);
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* Sections */
+.bg-section {
+  background: transparent;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  color: var(--text);
+  transition: transform .3s ease, box-shadow .3s ease, background .25s ease, color .25s ease;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 1.25rem 2.5rem rgba(0,0,0,0.18);
+}
+
+/* Footer */
+#siteFooter {
+  background: transparent;
+  color: var(--muted);
+}
+
+/* Adjust outline buttons contrast */
+.btn-outline-light { border-color: rgba(255,255,255,0.85); color: rgba(255,255,255,0.95); }
+.btn-outline-dark { border-color: rgba(0,0,0,0.12); color: rgba(0,0,0,0.85); }
+
+/* Hero con fondo dinámico */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 1s ease;
+}
+
+.day {
+  background: linear-gradient(to bottom, #87CEEB, #fff);
+  color: #000;
+}
+
+.night {
+  background: linear-gradient(to bottom, #0a0a2a, #1a1a40);
+  color: white;
+}
+
+/* Cielo con sol, luna y estrellas */
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sun, .moon {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: all 1.5s ease-in-out;
+  z-index: 1;
+}
+
+.sun {
+  background: radial-gradient(circle, #FFD700, #FFA500);
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+   background: radial-gradient(circle at center, #FFD700, #FFA500);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  filter: drop-shadow(0 0 10px #ffae00);
+
+}
+
+
+.moon {
+  background: radial-gradient(circle, #ffffff, #d9d9d9);
+  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(-50%) translateY(-200%);
+   background: radial-gradient(circle at center, #ffffff, #d9d9d9);
+  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.2),
+              0 0 20px rgba(255, 255, 255, 0.3);
+  filter: grayscale(20%) brightness(90%);
+
+}
+
+/* Estado noche: luna aparece y sol se esconde */
+.night .sun {
+  transform: translateX(-50%) translateY(200%);
+  opacity: 0;
+}
+
+.night .moon {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ✨ Estrellas */
+/* ✨ Estrellas */
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 2s infinite, floatStars 60s linear infinite;
+}
+
+/* Parpadeo */
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Movimiento sutil de estrellas */
+@keyframes floatStars {
+  from { transform: translateX(0); }
+  to { transform: translateX(-200px); }
+}
+
+/* Solo mostrar estrellas en modo noche */
+.night .star {
+  opacity: 1;
+}
+
+/* Imagen de perfil circular y proporcional */
+.profile-img {
+  max-width: 240px;
+  max-height: 240px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 4px solid var(--card-bg, #fff);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+/* ...existing code... */
+
+/* Animación de entrada para el h1 del hero */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-title {
+  opacity: 0;
+  animation: fadeInDown 1s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+/* Animación de cambio de modo */
+@keyframes colorFlash {
+  0% { filter: brightness(1.2) drop-shadow(0 0 10px #fff); }
+  50% { filter: brightness(0.7) drop-shadow(0 0 20px #ffd700); }
+  100% { filter: none; }
+}
+
+.mode-switch-animate {
+  animation: colorFlash 0.7s;
+}
