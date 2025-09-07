@@ -105,3 +105,114 @@ toggleBtn.addEventListener("click", () => {
       heroTitle.classList.add('mode-switch-animate');
     });
   }
+ 
+document.getElementById('themeToggle').addEventListener('click', function() {
+  this.classList.add('mode-switch-animate');
+  setTimeout(() => this.classList.remove('mode-switch-animate'), 700);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const sky = document.querySelector('.hero .sky');
+  
+    function crearNube() {
+    if (!document.body.classList.contains('night')) return; // Solo en modo noche
+    const nube = document.createElement('div');
+    nube.className = 'cloud';
+    // Tamaño y opacidad aleatoria
+    const width = Math.random() * 80 + 60;
+    const height = width * (Math.random() * 0.4 + 0.6);
+    nube.style.width = width + 'px';
+    nube.style.height = height + 'px';
+    nube.style.opacity = (Math.random() * 0.3 + 0.5).toFixed(2);
+    // Posición vertical aleatoria
+    nube.style.top = (Math.random() * 50 + 10) + '%';
+    nube.style.left = '-200px';
+    // Duración aleatoria
+    const duracion = Math.random() * 25 + 25;
+    nube.style.animation = `cloudMove ${duracion}s linear forwards`;
+    sky.appendChild(nube);
+    // Eliminar la nube cuando termine la animación
+    nube.addEventListener('animationend', () => nube.remove());
+  }
+
+  // Generar nubes cada 3 segundos
+  setInterval(crearNube, 3000);
+
+  
+});
+
+// juego
+
+  // --- JUEGO CLICKER ---
+  const openClicker = document.getElementById('openClicker');
+  const clickerGame = document.getElementById('clickerGame');
+  const clickerScore = document.getElementById('clickerScore');
+  const clickerCloud = document.getElementById('clickerCloud');
+  const closeClicker = document.getElementById('closeClicker');
+  let puntos = 0;
+
+  if (openClicker && clickerGame && clickerScore && clickerCloud && closeClicker) {
+    openClicker.addEventListener('click', () => {
+      if (!document.body.classList.contains('day')) {
+        alert('¡El juego solo está disponible en modo noche!');
+        return;
+      }
+      puntos = 0;
+      clickerScore.textContent = "Puntos: 0";
+      clickerGame.style.display = 'block';
+    });
+
+
+    closeClicker.addEventListener('click', () => {
+      clickerGame.style.display = 'none';
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.code === 'Escape' && clickerGame.style.display === 'block') {
+        clickerGame.style.display = 'none';
+      }
+    });
+
+    // Ocultar el juego si cambias a modo noche
+    const toggleBtn = document.getElementById('themeToggle');
+    const hero = document.getElementById('hero');
+    if (toggleBtn && hero) {
+      toggleBtn.addEventListener("click", () => {
+        if (hero.classList.contains("night")) {
+          clickerGame.style.display = 'none';
+        }
+      });
+    }
+  };
+ // 🔹 Delegación de evento: cualquier .cloud clickeada suma puntos
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cloud")) {
+    if (clickerGame && clickerGame.style.display === "block") {
+      puntos++;
+      clickerScore.textContent = "Puntos: " + puntos;
+      e.target.style.transform = "scale(1.15)";
+      setTimeout(() => e.target.style.transform = "scale(1)", 100);
+    }
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cloud")) {
+    if (clickerGame && clickerGame.style.display === "block") {
+      puntos++;
+      clickerScore.textContent = "Puntos: " + puntos;
+
+      // Animación rápida antes de eliminar
+      e.target.style.transition = "transform 0.3s ease, opacity 0.3s ease";
+      e.target.style.transform = "scale(1.5)";
+      e.target.style.opacity = "0";
+
+      // Eliminar después de la animación
+      setTimeout(() => e.target.remove(), 300);
+    }
+  }
+});
+
+
+
+      

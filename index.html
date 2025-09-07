@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portafolio - Facu</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -24,7 +24,7 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
           <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
@@ -37,18 +37,36 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero --> 
+   <section>
+       <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+      </section>
+
+      
    <section class="hero day" id="hero">
     <div class="sky">
       <div class="sun" id="sun"></div>
       <div class="moon" id="moon"></div>
     </div>
+      <div id="clickerGame" style="display:none; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:10; text-align:center;">
+    <div id="clickerScore" style="font-size:2rem; font-weight:bold; color:#222; margin-bottom:10px;">Puntos: 0</div>
+    <img id="clickerCloud" src=""
+      alt="" style="width:120px; cursor:pointer; transition:transform 0.1s;">
+    <button id="closeClicker" class="btn btn-danger btn-sm mt-2">Cerrar</button>
+  </div>
     <div class="container text-center">
-          <h1 class="display-3 fw-bold hero-title">Hola, soy Facu 👋</h1>
+          <h1 class="display-3 fw-bold hero-title">Hola, soy Facu
+          <img src="img/hola.png" alt="Hola" class="emoji-img ms-2" style="height: 1.2em; vertical-align: -0.2em;">
+          </h1>
       <p class="lead">Desarrollador Frontend Junior</p>
       <button id="themeToggle" class="btn btn-dark mt-4">🌙 Cambiar modo</button>
+      <button id="openClicker" class="btn btn-success mt-4 ms-2">☁️ Jugar Clicker</button>
     </div>
   </section>
+
+  
 
   <!-- Sobre mí -->
   <section id="sobre-mi" class="py-5">
@@ -59,11 +77,46 @@
         </div>
         <div class="col-md-7">
           <h2 class="fw-bold">Sobre mí</h2>
-          <p>Soy estudiante de Desarrollo de Software en el Instituto Superior Villa del Rosario. Me apasiona el frontend, la tecnología y la ciberseguridad. Busco mi primer trabajo como programador.</p>
+          <p>Soy un estudiante de la Tecnicatura Superior en Desarrollo de Software con gran interés por el desarrollo web y la programación frontend. Me caracterizo por ser organizado y detallista, siempre buscando mejorar mis habilidades y aprender nuevas tecnologías.
+
+Actualmente tengo experiencia trabajando con HTML, CSS, JavaScript, .NET (ASPX) y SQL Server, desarrollando proyectos como catálogos web, sistemas de gestión y aplicaciones académicas.
+
+Además, disfruto aplicando la creatividad en el diseño de interfaces, creando experiencias visuales atractivas y funcionales. Mi objetivo es crecer como desarrollador frontend, aportar soluciones innovadoras y seguir capacitándome en frameworks modernos como React.</p>
         </div>
       </div>
     </div>
   </section>
+
+<!-- Aquí va la sección de skills -->
+<section id="skills" class="py-4 text-center">
+  <h3 class="fw-bold mb-4">Tecnologías y Skills</h3>
+  <div class="d-flex flex-wrap justify-content-center gap-4">
+    <div>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="48" height="48"/>
+      <div>HTML5</div>
+    </div>
+    <div>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="48" height="48"/>
+      <div>CSS3</div>
+    </div>
+    <div>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="48" height="48"/>
+      <div>JavaScript</div>
+    </div>
+    <div>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" width="48" height="48"/>
+      <div>.NET (ASPX)</div>
+    </div>
+    <div>
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftsqlserver.svg" alt="SQL Server" width="48" height="48" style="filter: invert(18%) sepia(90%) saturate(7493%) hue-rotate(357deg) brightness(97%) contrast(119%);" />
+      <div>SQL Server</div>
+    </div>
+    <div>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width="48" height="48"/>
+      <div>PHP</div>
+    </div>
+  </div>
+</section>
 
   <!-- Proyectos -->
   <section id="proyectos" class="py-5 bg-section">
@@ -77,21 +130,46 @@
               <h5 class="card-title">Catálogo de Libros</h5>
               <p class="card-text">Aplicación web ASPX para gestionar un catálogo de libros con carrito de compras.</p>
               <a href="#" class="btn btn-primary btn-sm">Ver Demo</a>
-              <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+              <a href="https://github.com/fvp55/libreria-catalogo" class="btn btn-outline-dark btn-github">GitHub</a>
             </div>
           </div>
         </div>
         <!-- más tarjetas... -->
+
+         <div class="col-md-4">
+          <div class="card shadow-lg border-0 h-100 project-card">
+            <img src="/portafolio/img/tutoria1.png" class="card-img-top" alt="Proyecto 1">
+            <div class="card-body">
+              <h5 class="card-title">Tutorías</h5>
+              <p class="card-text">Aplicación web para gestionar un sistema de tutorías entre estudiantes y docentes.</p>
+              <a href="#" class="btn btn-primary btn-sm">Ver Demo</a>
+              <a href="https://github.com/ValentinCarniel/Tutorias_app" class="btn btn-outline-dark btn-github">GitHub</a>
+            </div>
+          </div>
+
+        </div>
+         <div class="col-md-4">
+          <div class="card shadow-lg border-0 h-100 project-card">
+            <img src="/portafolio/img/tickera1.png" class="card-img-top" alt="Proyecto 1">
+            <div class="card-body">
+              <h5 class="card-title"> Tickera (Servicio técnico)</h5>
+              <p class="card-text">Página web para gestionar reportes de servicio técnico.</p>
+              <a href="#" class="btn btn-primary btn-sm">Ver Demo</a>
+              <a href="https://github.com/ALGARBE16/Ticketa" class="btn btn-outline-dark btn-github">GitHub</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
 
   <!-- Contacto -->
   <section id="contacto" class="py-5">
     <div class="container text-center">
       <h2 class="fw-bold">Contacto</h2>
       <p>Puedes escribirme para colaboraciones o propuestas laborales:</p>
-      <a href="mailto:videla2004@gmail.com" class="btn btn-primary shadow">Enviar correo</a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=videla2004@gmail.com" target="_blank" class="btn btn-primary shadow">Enviar correo</a>
       <div class="mt-3">
         <a href="https://github.com/fvp55" target="_blank" class="me-3">GitHub</a>
         <a href="https://linkedin.com/in/facundo-videla-prats-87056b201/" target="_blank">LinkedIn</a>

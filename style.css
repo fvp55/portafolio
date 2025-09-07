@@ -7,6 +7,12 @@ body {
   color: var(--text);
   transition: background .25s ease, color .25s ease;
   scroll-behavior: smooth;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.lead{
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 /* Navbar style that adapts */
@@ -22,7 +28,7 @@ body {
 
 /* Hero */
 .hero {
-  min-height: 85vh;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,6 +94,11 @@ body {
   height: 100%;
   overflow: hidden;
   pointer-events: none;
+}
+
+.cloud {
+  pointer-events: auto; /* 🔹 ahora sí se puede hacer click en las nubes */
+  cursor: pointer;
 }
 
 .sun, .moon {
@@ -196,7 +207,7 @@ body {
   animation: fadeInDown 1s cubic-bezier(.77,0,.18,1) forwards;
 }
 
-/* Animación de cambio de modo */
+/* Animación de cambio de modo *
 @keyframes colorFlash {
   0% { filter: brightness(1.2) drop-shadow(0 0 10px #fff); }
   50% { filter: brightness(0.7) drop-shadow(0 0 20px #ffd700); }
@@ -205,4 +216,134 @@ body {
 
 .mode-switch-animate {
   animation: colorFlash 0.7s;
+}*/
+
+.btn-github {
+  /* Nada especial en modo día, usa outline-dark */
+}
+
+.night .btn-github {
+  border-color: #fff !important;
+  color: #fff !important;
+  background: transparent !important;
+}
+.night .btn-github:hover {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+/* ...existing code... */
+
+.nav-link {
+  position: relative;
+  transition: color 0.2s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(.77,0,.18,1);
+  transform-origin: left;
+  opacity: 0.7;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  transform: scaleX(1);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #0d6efd !important; /* Cambia el color al pasar el mouse, opcional */
+}
+
+/* ...existing code... */
+
+#themeToggle {
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+#themeToggle:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+/* ...existing code... */
+
+/* Nubes animadas solo en modo día */
+.cloud {
+  position: absolute;
+  bottom: 60%;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.7;
+  width: 100px;
+  height: 60px;
+  z-index: 2;
+  box-shadow:
+    30px 0 0 0 #fff,
+    60px 10px 0 0 #fff,
+    90px 0 0 0 #fff;
+  animation: cloudMove 40s linear infinite;
+  display: none;
+}
+
+.day .cloud {
+  display: block;
+}
+
+.cloud1 {
+  left: -200px;
+  top: 20%;
+  animation-duration: 38s;
+}
+
+.cloud2 {
+  left: -250px;
+  top: 35%;
+  width: 140px;
+  height: 80px;
+  opacity: 0.6;
+  animation-duration: 50s;
+  animation-delay: 10s;
+}
+
+.cloud3 {
+  left: -180px;
+  top: 55%;
+  width: 80px;
+  height: 50px;
+  opacity: 0.5;
+  animation-duration: 60s;
+  animation-delay: 20s;
+}
+
+@keyframes cloudMove {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+.emoji-img {
+  height: 1.2em;
+  vertical-align: -0.2em;
+  display: inline-block;
+}
+
+/* juego */
+#clickerGame {
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #0002;
+  padding: 24px 32px 16px 32px;
 }
