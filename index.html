@@ -13,7 +13,7 @@
 </head>
 <body data-bs-theme="light">
 
-  <!-- Navbar (sin clases de color fijas. se aplican desde JS) -->
+  <!-- Navbar -->
   <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top shadow">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">Mi Portafolio</a>
@@ -25,110 +25,54 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
           <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-
           <!-- switch -->
-          
-          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero --> 
-   <section>
-       <div class="cloud cloud1"></div>
-        <div class="cloud cloud2"></div>
-        <div class="cloud cloud3"></div>
-      </section>
+  <!-- Nubes decorativas -->
+  <section>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+  </section>
 
-      
-   <section class="hero day" id="hero">
+  <!-- Hero -->
+  <section class="hero day" id="hero">
     <div class="sky">
       <div class="sun" id="sun"></div>
       <div class="moon" id="moon"></div>
     </div>
-      <div id="clickerGame" style="display:none; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:10; text-align:center;">
-    <div id="clickerScore" style="font-size:2rem; font-weight:bold; color:#222; margin-bottom:10px;">Puntos: 0</div>
-    <img id="clickerCloud" src=""
-      alt="" style="width:120px; cursor:pointer; transition:transform 0.1s;">
-    <button id="closeClicker" class="btn btn-danger btn-sm mt-2">Cerrar</button>
-  </div>
+
     <div class="container text-center">
-          <h1 class="display-3 fw-bold hero-title">Hola, soy Facu
-          <img src="img/hola.png" alt="Hola" class="emoji-img ms-2" style="height: 1.2em; vertical-align: -0.2em;">
-          </h1>
-      <p class="lead">Desarrollador Frontend Junior</p>
-      <button id="themeToggle" class="btn btn-dark mt-4">🌙 Cambiar modo</button>
-      <button id="openClicker" class="btn btn-success mt-4 ms-2">☁️ Jugar Clicker</button>
+      <h1 class="display-3 fw-bold hero-title">Hola, soy Facu
+        <img src="img/hola.png" alt="Hola" class="emoji-img ms-2" style="height: 1.2em; vertical-align: -0.2em;">
+      </h1>
+      <p class="lead">Desarrollador Frontend</p>
+      <button id="themeToggle" class="btn btn-dark mt-4">🌙 Cambiar modo </button>
+      <button id="playFlappy" class="btn btn-success mt-4">🐦 Jugar Flappy Bird</button>
     </div>
   </section>
 
-  
-
-  <!-- Sobre mí -->
-  <section id="sobre-mi" class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-5 text-center mb-4 mb-md-0">
-          <img src="img/IMG_20250823_165243907.jpg" alt="Tu foto" class="rounded-circle img-fluid shadow-lg profile-img">
-        </div>
-        <div class="col-md-7">
-          <h2 class="fw-bold">Sobre mí</h2>
-          <p>Soy un estudiante de la Tecnicatura Superior en Desarrollo de Software con gran interés por el desarrollo web y la programación frontend. Me caracterizo por ser organizado y detallista, siempre buscando mejorar mis habilidades y aprender nuevas tecnologías.
-
-Actualmente tengo experiencia trabajando con HTML, CSS, JavaScript, .NET (ASPX) y SQL Server, desarrollando proyectos como catálogos web, sistemas de gestión y aplicaciones académicas.
-
-Además, disfruto aplicando la creatividad en el diseño de interfaces, creando experiencias visuales atractivas y funcionales. Mi objetivo es crecer como desarrollador frontend, aportar soluciones innovadoras y seguir capacitándome en frameworks modernos como React.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- Aquí va la sección de skills -->
-<section id="skills" class="py-4 text-center">
-  <h3 class="fw-bold mb-4">Tecnologías y Skills</h3>
-  <div class="d-flex flex-wrap justify-content-center gap-4">
-    <div>
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="48" height="48"/>
-      <div>HTML5</div>
-    </div>
-    <div>
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="48" height="48"/>
-      <div>CSS3</div>
-    </div>
-    <div>
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="48" height="48"/>
-      <div>JavaScript</div>
-    </div>
-    <div>
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" width="48" height="48"/>
-      <div>.NET (ASPX)</div>
-    </div>
-    <div>
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftsqlserver.svg" alt="SQL Server" width="48" height="48" style="filter: invert(18%) sepia(90%) saturate(7493%) hue-rotate(357deg) brightness(97%) contrast(119%);" />
-      <div>SQL Server</div>
-    </div>
-    <div>
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width="48" height="48"/>
-      <div>PHP</div>
-    </div>
+  <!-- Flappy Game -->
+  <div id="flappyGame" class="flappy-container">
+    <div id="bird" class="bird"></div>
+    <div id="scoreBoard">Puntos: 0</div>
+    <button id="exitFlappy" class="btn btn-danger">Salir</button>
   </div>
-</section>
 
-  <!-- Proyectos -->
+  <!-- Proyectos (subimos la prioridad de esta sección) -->
   <section id="proyectos" class="py-5 bg-section">
     <div class="container">
       <h2 class="text-center mb-5 fw-bold">Proyectos Destacados</h2>
       <div class="row g-4">
+        <div class="col-md-4"></div>
         <div class="col-md-4">
-         
-        </div>
-        <!-- más tarjetas... -->
-
-         <div class="col-md-4">
           <div class="card shadow-lg border-0 h-100 project-card">
             <img src="/portafolio/img/tutoria1.png" class="card-img-top" alt="Proyecto 1">
             <div class="card-body">
@@ -137,9 +81,8 @@ Además, disfruto aplicando la creatividad en el diseño de interfaces, creando 
               <a href="https://github.com/ValentinCarniel/Tutorias_app" class="btn btn-outline-dark btn-github">GitHub</a>
             </div>
           </div>
-
         </div>
-         <div class="col-md-4">
+        <div class="col-md-4">
           <div class="card shadow-lg border-0 h-100 project-card">
             <img src="/portafolio/img/tickera1.png" class="card-img-top" alt="Proyecto 1">
             <div class="card-body">
@@ -153,6 +96,55 @@ Además, disfruto aplicando la creatividad en el diseño de interfaces, creando 
     </div>
   </section>
 
+  <!-- Sobre mí (ahora después de proyectos) -->
+  <section id="sobre-mi" class="py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5 text-center mb-4 mb-md-0">
+          <img src="img/IMG_20250823_165243907.jpg" alt="Tu foto" class="rounded-circle img-fluid shadow-lg profile-img">
+        </div>
+        <div class="col-md-7">
+          <h2 class="fw-bold">Sobre mí</h2>
+          <p>Soy un estudiante de la Tecnicatura Superior en Desarrollo de Software con gran interés por el desarrollo web y la programación frontend. Me caracterizo por ser organizado y detallista, siempre buscando mejorar mis habilidades y aprender nuevas tecnologías.
+          <br><br>
+          Actualmente tengo experiencia trabajando con HTML, CSS, JavaScript, .NET (ASPX) y SQL Server, desarrollando proyectos como catálogos web, sistemas de gestión y aplicaciones académicas.
+          <br><br>
+          Además, disfruto aplicando la creatividad en el diseño de interfaces, creando experiencias visuales atractivas y funcionales. Mi objetivo es crecer como desarrollador frontend, aportar soluciones innovadoras y seguir capacitándome en frameworks modernos como React.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-4 text-center">
+    <h3 class="fw-bold mb-4">Tecnologías y Skills</h3>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+      <div>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="48" height="48"/>
+        <div>HTML5</div>
+      </div>
+      <div>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="48" height="48"/>
+        <div>CSS3</div>
+      </div>
+      <div>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="48" height="48"/>
+        <div>JavaScript</div>
+      </div>
+      <div>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" width="48" height="48"/>
+        <div>.NET (ASPX)</div>
+      </div>
+      <div>
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftsqlserver.svg" alt="SQL Server" width="48" height="48" style="filter: invert(18%) sepia(90%) saturate(7493%) hue-rotate(357deg) brightness(97%) contrast(119%);" />
+        <div>SQL Server</div>
+      </div>
+      <div>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width="48" height="48"/>
+        <div>PHP</div>
+      </div>
+    </div>
+  </section>
 
   <!-- Contacto -->
   <section id="contacto" class="py-5">
@@ -174,8 +166,7 @@ Además, disfruto aplicando la creatividad en el diseño de interfaces, creando 
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JS personalizado -->
   <script src="script.js"></script>
 </body>
+
 </html>

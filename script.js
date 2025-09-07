@@ -213,6 +213,140 @@ document.addEventListener("click", (e) => {
   }
 });
 
+const flappyGame = document.getElementById("flappyGame");
+const bird = document.getElementById("bird");
+const playFlappyBtn = document.getElementById("playFlappy");
+const exitFlappyBtn = document.getElementById("exitFlappy");
+const scoreBoard = document.getElementById("scoreBoard");
+
+let gravity = 2;
+let birdTop = 200;
+let velocity = 0;
+let isPlaying = false;
+let pipes = [];
+let score = 0;
+let gameLoop, pipeLoop;
+
+// 🟢 Iniciar juego
+playFlappyBtn.addEventListener("click", () => {
+  flappyGame.style.display = "block";
+  isPlaying = true;
+  birdTop = 200;
+  velocity = 0;
+  score = 0;
+  scoreBoard.textContent = "Puntos: 0";
+  pipes.forEach(p => p.remove());
+  pipes = [];
+
+  gameLoop = setInterval(playGame, 20);
+  pipeLoop = setInterval(generatePipes, 2000);
+});
+
+// 🔴 Salir del juego
+exitFlappyBtn.addEventListener("click", endGame);
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") endGame();
+  if (e.key === " " && isPlaying) jump();
+});
+
+// 🕹️ Control salto
+flappyGame.addEventListener("click", () => jump());
+
+function jump() {
+  velocity = -7;
+}
+
+// 🎮 Lógica del juego
+function playGame() {
+  velocity += gravity * 0.2;
+  birdTop += velocity;
+  bird.style.top = birdTop + "px";
+
+  // Colisión con el suelo o techo
+  if (birdTop <= 0 || birdTop >= flappyGame.offsetHeight - bird.offsetHeight) {
+    endGame();
+  }
+
+  // Mover tubos
+  pipes.forEach((pipe, index) => {
+    let left = parseInt(pipe.style.left);
+    left -= 3;
+    pipe.style.left = left + "px";
+
+    // Eliminar tubos que salieron
+    if (left + 60 < 0) {
+      pipe.remove();
+      pipes.splice(index, 1);
+      score++;
+      scoreBoard.textContent = "Puntos: " + score;
+    }
+
+    // Detectar colisión
+    if (
+      left < 140 &&
+      left + 60 > 100 &&
+      (
+        (pipe.classList.contains("top") && birdTop < pipe.offsetHeight) ||
+        (pipe.classList.contains("bottom") &&
+         birdTop + bird.offsetHeight > flappyGame.offsetHeight - pipe.offsetHeight)
+      )
+    ) {
+      endGame();
+    }
+  });
+}
+
+// 🚧 Generar tubos
+function generatePipes() {
+  const gap = 150;
+  const topHeight = Math.floor(Math.random() * 200) + 50;
+  const bottomHeight = flappyGame.offsetHeight - topHeight - gap;
+
+  const topPipe = document.createElement("div");
+  topPipe.classList.add("pipe", "top");
+  topPipe.style.height = topHeight + "px";
+  topPipe.style.left = flappyGame.offsetWidth + "px";
+
+  const bottomPipe = document.createElement("div");
+  bottomPipe.classList.add("pipe", "bottom");
+  bottomPipe.style.height = bottomHeight + "px";
+  bottomPipe.style.left = flappyGame.offsetWidth + "px";
+
+  flappyGame.appendChild(topPipe);
+  flappyGame.appendChild(bottomPipe);
+  pipes.push(topPipe, bottomPipe);
+}
+
+// 🔴 Terminar juego
+function endGame() {
+  clearInterval(gameLoop);
+  clearInterval(pipeLoop);
+  isPlaying = false;
+  alert("Fin del juego. Tu puntaje: " + score);
+  flappyGame.style.display = "none";
+}
+
+document.addEventListener("keydown", e => {
+  if (!isPlaying) return;
+
+  if (e.code === "Space") {
+    e.preventDefault(); // 👈 evita el scroll de la página
+    jump();
+  }
+  if (e.key === "Escape") {
+    endGame();
+  }
+});
+function endGame() {
+  if (!isPlaying) return; // 👈 evita que se ejecute dos veces
+
+  clearInterval(gameLoop);
+  clearInterval(pipeLoop);
+  isPlaying = false;
+
+  alert("Fin del juego. Tu puntaje: " + score);
+  flappyGame.style.display = "none";
+}
 
 
       

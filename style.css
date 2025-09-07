@@ -1,4 +1,3 @@
-
 /* Base */
 * { box-sizing: border-box; }
 body {
@@ -28,7 +27,7 @@ body {
 
 /* Hero */
 .hero {
-  height: 800px; /* o el alto que quieras */
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +40,6 @@ body {
   transition: background 1s ease;
   z-index: 2;
 }
-
 
 /* Sections */
 .bg-section {
@@ -69,8 +67,6 @@ body {
 .btn-outline-light { border-color: rgba(255,255,255,0.85); color: rgba(255,255,255,0.95); }
 .btn-outline-dark { border-color: rgba(0,0,0,0.12); color: rgba(0,0,0,0.85); }
 
-
-
 .day {
   background: linear-gradient(to bottom, #87CEEB, #fff);
   color: #000;
@@ -93,58 +89,54 @@ body {
 }
 
 .cloud {
-  pointer-events: auto; /* 🔹 ahora sí se puede hacer click en las nubes */
+  pointer-events: auto;
   cursor: pointer;
 }
 
-.sun, .moon {
+.sun {
   position: absolute;
   top: 12%;
   left: 50%;
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0);
   transition: all 1.5s ease-in-out;
   z-index: 0;
-}
-
-.sun {
-  background: radial-gradient(circle, #FFD700, #FFA500);
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-   background: radial-gradient(circle at center, #FFD700, #FFA500);
+  background: radial-gradient(circle at center, #FFD700, #FFA500);
   box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
   filter: drop-shadow(0 0 10px #ffae00);
-
+  opacity: 1;
 }
 
-
 .moon {
-  background: radial-gradient(circle, #ffffff, #d9d9d9);
-  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.2);
-  opacity: 0;
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   transform: translateX(-50%) translateY(-200%);
-   background: radial-gradient(circle at center, #ffffff, #d9d9d9);
+  transition: all 1.5s ease-in-out;
+  z-index: 0;
+  background: radial-gradient(circle at center, #ffffff, #d9d9d9);
   box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.2),
               0 0 20px rgba(255, 255, 255, 0.3);
   filter: grayscale(20%) brightness(90%);
-
+  opacity: 0;
 }
 
-/* Estado noche: luna aparece y sol se esconde */
+/* Estado noche */
 .night .sun {
   transform: translateX(-50%) translateY(200%);
   opacity: 0;
 }
-
 .night .moon {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
 
-/* ✨ Estrellas */
-/* ✨ Estrellas */
+/* Estrellas */
 .star {
   position: absolute;
   width: 3px;
@@ -154,25 +146,19 @@ body {
   opacity: 0;
   animation: twinkle 2s infinite, floatStars 60s linear infinite;
 }
-
-/* Parpadeo */
 @keyframes twinkle {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
 }
-
-/* Movimiento sutil de estrellas */
 @keyframes floatStars {
   from { transform: translateX(0); }
   to { transform: translateX(-200px); }
 }
-
-/* Solo mostrar estrellas en modo noche */
 .night .star {
   opacity: 1;
 }
 
-/* Imagen de perfil circular y proporcional */
+/* Imagen de perfil */
 .profile-img {
   max-width: 240px;
   max-height: 240px;
@@ -184,9 +170,7 @@ body {
   box-shadow: 0 4px 24px rgba(0,0,0,0.12);
 }
 
-/* ...existing code... */
-
-/* Animación de entrada para el h1 del hero */
+/* Hero animación */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -197,27 +181,14 @@ body {
     transform: translateY(0) scale(1);
   }
 }
-
 .hero-title {
+  margin-bottom: 1rem;
+  font-size: 3rem;
   opacity: 0;
   animation: fadeInDown 1s cubic-bezier(.77,0,.18,1) forwards;
 }
 
-/* Animación de cambio de modo *
-@keyframes colorFlash {
-  0% { filter: brightness(1.2) drop-shadow(0 0 10px #fff); }
-  50% { filter: brightness(0.7) drop-shadow(0 0 20px #ffd700); }
-  100% { filter: none; }
-}
-
-.mode-switch-animate {
-  animation: colorFlash 0.7s;
-}*/
-
-.btn-github {
-  /* Nada especial en modo día, usa outline-dark */
-}
-
+/* GitHub button */
 .night .btn-github {
   border-color: #fff !important;
   color: #fff !important;
@@ -228,13 +199,11 @@ body {
   color: #222 !important;
 }
 
-/* ...existing code... */
-
+/* Navbar links */
 .nav-link {
   position: relative;
   transition: color 0.2s;
 }
-
 .nav-link::after {
   content: "";
   position: absolute;
@@ -248,32 +217,26 @@ body {
   transform-origin: left;
   opacity: 0.7;
 }
-
 .nav-link:hover::after,
 .nav-link:focus::after {
   transform: scaleX(1);
 }
-
 .nav-link:hover,
 .nav-link:focus {
-  color: #0d6efd !important; /* Cambia el color al pasar el mouse, opcional */
+  color: #0d6efd !important;
 }
 
-/* ...existing code... */
-
+/* Botón theme toggle */
 #themeToggle {
   transition: box-shadow 0.2s, transform 0.2s;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
-
 #themeToggle:hover {
   transform: scale(1.07);
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
-/* ...existing code... */
-
-/* Nubes animadas solo en modo día */
+/* Nubes */
 .cloud {
   position: absolute;
   bottom: 60%;
@@ -290,17 +253,14 @@ body {
   animation: cloudMove 40s linear infinite;
   display: none;
 }
-
 .day .cloud {
   display: block;
 }
-
 .cloud1 {
   left: -200px;
   top: 20%;
   animation-duration: 38s;
 }
-
 .cloud2 {
   left: -250px;
   top: 35%;
@@ -310,7 +270,6 @@ body {
   animation-duration: 50s;
   animation-delay: 10s;
 }
-
 .cloud3 {
   left: -180px;
   top: 55%;
@@ -320,16 +279,12 @@ body {
   animation-duration: 60s;
   animation-delay: 20s;
 }
-
 @keyframes cloudMove {
-  0% {
-    left: -200px;
-  }
-  100% {
-    left: 110%;
-  }
+  0% { left: -200px; }
+  100% { left: 110%; }
 }
 
+/* Emoji */
 .emoji-img {
   height: 1.2em;
   vertical-align: -0.2em;
@@ -341,10 +296,62 @@ body {
   z-index: 2;  
 }
 
-/* juego */
-#clickerGame {
-  background: rgba(255,255,255,0.92);
-  border-radius: 18px;
-  box-shadow: 0 4px 24px #0002;
-  padding: 24px 32px 16px 32px;
+/* Flappy Bird */
+.flappy-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: none;
+  background: linear-gradient(to bottom, #87ceeb, #fff);
+  z-index: 9999;
+}
+.bird {
+  position: absolute;
+  left: 100px;
+  top: 200px;
+  width: 40px;
+  height: 40px;
+  background: yellow;
+  border-radius: 50%;
+}
+.pipe {
+  position: absolute;
+  width: 60px;
+  background: green;
+}
+.pipe.top { top: 0; }
+.pipe.bottom { bottom: 0; }
+#scoreBoard {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  z-index: 10000;
+}
+#exitFlappy {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Opción A - Profesional */
+#sobre-mi h2, 
+#sobre-mi p {
+  text-align: left;
+}
+
+/* Opción B - Creativa */
+#sobre-mi .row {
+  flex-direction: column;
+  text-align: center;
+}
+
+#sobre-mi .profile-img {
+  margin-bottom: 1.5rem;
+  max-width: 200px;
 }
