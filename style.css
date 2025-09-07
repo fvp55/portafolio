@@ -28,14 +28,20 @@ body {
 
 /* Hero */
 .hero {
-  height: 200px;
+  height: 800px; /* o el alto que quieras */
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background: var(--hero-gradient);
   color: #ffffff;
   text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  position: relative;
+  overflow: hidden;
+  transition: background 1s ease;
+  z-index: 2;
 }
+
 
 /* Sections */
 .bg-section {
@@ -63,18 +69,7 @@ body {
 .btn-outline-light { border-color: rgba(255,255,255,0.85); color: rgba(255,255,255,0.95); }
 .btn-outline-dark { border-color: rgba(0,0,0,0.12); color: rgba(0,0,0,0.85); }
 
-/* Hero con fondo dinámico */
-.hero {
-  height: 800px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  transition: background 1s ease;
-  z-index: 2;
-}
+
 
 .day {
   background: linear-gradient(to bottom, #87CEEB, #fff);
@@ -339,6 +334,11 @@ body {
   height: 1.2em;
   vertical-align: -0.2em;
   display: inline-block;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;  
 }
 
 /* juego */
