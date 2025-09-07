@@ -103,7 +103,7 @@ body {
 
 .sun, .moon {
   position: absolute;
-  top: 20%;
+  top: 12%;
   left: 50%;
   width: 120px;
   height: 120px;
