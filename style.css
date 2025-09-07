@@ -73,6 +73,7 @@ body {
   position: relative;
   overflow: hidden;
   transition: background 1s ease;
+  z-index: 2;
 }
 
 .day {
@@ -110,7 +111,7 @@ body {
   border-radius: 50%;
   transform: translateX(-50%);
   transition: all 1.5s ease-in-out;
-  z-index: 1;
+  z-index: 0;
 }
 
 .sun {
