@@ -355,3 +355,99 @@ body {
   margin-bottom: 1.5rem;
   max-width: 200px;
 }
+
+/* 🔹 Escala fluida de títulos y textos */
+.hero-title {
+  font-size: clamp(2rem, 6vw, 3.5rem); /* entre 32px y 56px */
+}
+
+.lead {
+  font-size: clamp(1rem, 3vw, 1.5rem); /* entre 16px y 24px */
+}
+
+h2, h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* 🔹 Secciones con padding adaptable */
+
+
+/* 🔹 Navbar: evita que los links se amontonen en pantallas chicas */
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* 🔹 Hero: sol, luna y nubes más chicos en mobile */
+@media (max-width: 768px) {
+  .sun, .moon {
+    width: 80px;
+    height: 80px;
+    top: 8%;
+  }
+
+  .cloud {
+    transform: scale(0.7);
+  }
+}
+
+/* 🔹 Apartado Sobre mí - versión responsive (opción A por defecto) */
+#sobre-mi h2, 
+#sobre-mi p {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  #sobre-mi h2, 
+  #sobre-mi p {
+    text-align: center;
+  }
+
+  #sobre-mi .profile-img {
+    margin-bottom: 1.5rem;
+    max-width: 200px;
+  }
+}
+
+/* 🔹 Skills: íconos equilibrados en grid responsive */
+#skills .d-flex {
+  gap: 2rem;
+}
+
+#skills img {
+  width: clamp(40px, 8vw, 60px);
+  height: auto;
+}
+
+/* 🔹 Proyectos: cards siempre alineadas */
+.project-card {
+  min-height: 100%;
+}
+.project-card img {
+  object-fit: cover;
+  height: 200px;
+}
+
+/* 🔹 Contacto: botones y enlaces centrados en mobile */
+#contacto a {
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+/* Mejorar títulos de proyectos */
+.project-card .card-title {
+  font-size: 1.25rem; /* más grande */
+  font-weight: 700;   /* más marcado */
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  text-align: center;
+}
+
+/* Mejorar la descripción */
+.project-card .card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted, #555);
+  text-align: center;
+  min-height: 60px; /* asegura altura pareja */
+}
